@@ -7,6 +7,7 @@ const projectData = [
     description: "AI-powered analysis of neural pathways with interactive visualization components.",
     category: "Research",
     techStack: ["Python", "TensorFlow", "D3.js"],
+    date: "May 2023 – Present",
     image: "https://images.unsplash.com/photo-1501432377862-3d0432b87a14?ixid=M3w2MjE1MDB8MHwxfHNlYXJjaHwyfHxoZXJvJTIwc2VjdGlvbiUyQyUyMHByb2plY3QlMjBjYXJkc3xlbnwwfHx8fDE3NDA1NTkyODd8MA&ixlib=rb-4.0.3?w=600&h=1024"
   },
   {
@@ -15,6 +16,7 @@ const projectData = [
     description: "User-friendly dashboard for quantum computing simulations and visualizations.",
     category: "Development",
     techStack: ["React", "Node.js", "WebGL"],
+    date: "May 2023 – Present",
     image: "https://images.unsplash.com/photo-1586370740632-f910eb4ad077?ixid=M3w2MjE1MDB8MHwxfHNlYXJjaHw1fHxoZXJvJTIwc2VjdGlvbiUyQyUyMHByb2plY3QlMjBjYXJkc3xlbnwwfHx8fDE3NDA1NTkyODd8MA&ixlib=rb-4.0.3?w=600&h=1024"
   },
   {
@@ -22,7 +24,8 @@ const projectData = [
     title: "Biotech Data Platform",
     description: "Comprehensive platform for analyzing and visualizing biotechnology research data.",
     category: "Development",
-    techStack: ["Vue.js", "GraphQL", "D3.js"],
+    techStack: ["Vue.js", "GraphQL", "D3.js"],  
+    date: "May 2023 – Present",
     image: "https://images.unsplash.com/photo-1559752562-1513aa167782?ixid=M3w2MjE1MDB8MHwxfHNlYXJjaHwzfHxoZXJvJTIwc2VjdGlvbiUyQyUyMHByb2plY3QlMjBjYXJkc3xlbnwwfHx8fDE3NDA1NTkyODd8MA&ixlib=rb-4.0.3?w=600&h=1024"
   },
   {
@@ -31,6 +34,7 @@ const projectData = [
     description: "Revolutionary system for human-computer interaction using neural signals.",
     category: "Research",
     techStack: ["C++", "Python", "CUDA"],
+    date: "May 2023 – Present",
     image: "https://images.unsplash.com/photo-1576495350634-755e6560d431?ixid=M3w2MjE1MDB8MHwxfHNlYXJjaHwxMHx8aGVybyUyMHNlY3Rpb24lMkMlMjBwcm9qZWN0JTIwY2FyZHN8ZW58MHx8fHwxNzQwNTU5Mjg3fDA&ixlib=rb-4.0.3?w=600&h=1024"
   }
 ];
