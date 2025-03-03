@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { projectData } from './ProjectsSection'; // Import the project data
+import profilePic from '../../pic.png';
+
 
 const HeroSection = () => {
   const [visible, setVisible] = useState(false);
@@ -45,27 +47,81 @@ const HeroSection = () => {
     <section className="relative flex flex-col md:flex-row max-w-6xl mx-auto px-6 pt-24 min-h-screen">
       
       {/* Left Side - Fixed */}
-      <div className="md:w-1/2 sticky top-24 self-start">
-        <h2 className="text-lg text-gray-400">Hi, I'm Neelesh.</h2>
-        <h1 className="text-4xl font-semibold text-gray-200 mt-2">
+      <div className="md:w-1/2 sticky top-14 self-start">
+
+        <div className="flex items-center space-x-6">
+          {/* Profile Picture */}
+          <img 
+            src={profilePic} 
+            alt="Profile" 
+            className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-gray-600 shadow-lg"
+          />
+
+          {/* Name Section */}
+          <div>
+            <h2 className="text-lg text-gray-400">Hi, I'm</h2>
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-neon-cyan via-[40%] via-neon-blue via-[60%] via-neon-pink via-[80%] via-neon-orange to-neon-purple bg-clip-text text-transparent">
+  Neelesh Bokkisam.
+</h1>
+
+
+          </div>
+        </div>
+
+        <h1 className="text-4xl font-semibold text-gray-200 mt-4">
           I <span className="text-neon-cyan">{displayedWord}</span>.
         </h1>
-        <p className="text-gray-400 mt-4 text-lg leading-relaxed">
+        <p className="text-gray-400 mt-2 text-lg leading-relaxed">
           Studying EECS & IEOR at UC Berkeley.  
-          Exploring web development, research, and business analytics.
+          Exploring artificial intelligence, machine learning, software engineering, NLP, algorithms, and high frequency trading.  
+          :)
+
         </p>
 
-        <div className="flex flex-wrap gap-4 mt-6">
-          <a href="#projects" className="px-5 py-2 border border-gray-500 text-gray-300 rounded-md hover:bg-gray-800 transition">
-            Projects
+        {/* Social Media Icons */}
+        <div className="flex gap-6 mt-6">
+          <a href="https://github.com/neeleshbokkisam" target="_blank" rel="noopener noreferrer" 
+            className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
+            {/* GitHub SVG */}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
           </a>
-          <a href="#contact" className="px-5 py-2 border border-gray-500 text-gray-300 rounded-md hover:bg-gray-800 transition">
-            Contact
+
+          <a href="https://linkedin.com/in/neeleshbokkisam" target="_blank" rel="noopener noreferrer" 
+            className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
+            {/* LinkedIn SVG */}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+
+          <a href="https://instagram.com/neeleshbokkisam" target="_blank" rel="noopener noreferrer" 
+            className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
+            {/* Instagram SVG */}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+
+          <a href="mailto:neeleshbokkisam@berkeley.edu"
+            className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
+            {/* Gmail SVG */}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 6 12 13 2 6"></path>
+              <rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect>
+            </svg>
           </a>
         </div>
 
+
+
         {/* Terminal Box */}
-        <div className="mt-8 w-[280px] opacity-70 hover:opacity-100 transition-opacity duration-300">
+        <div className="mt-8 w-[480px] opacity-70 hover:opacity-100 transition-opacity duration-300">
           <div className="bg-background-light border border-neon-cyan/30 rounded-md p-4 shadow-neon-glow">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-3 h-3 bg-red-500 rounded-full"></div>
