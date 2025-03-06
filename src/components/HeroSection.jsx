@@ -44,43 +44,42 @@ const HeroSection = () => {
   }, [displayedWord, currentWordIndex, isDeleting, words]);
 
   return (
-    <section className="relative flex flex-col md:flex-row max-w-6xl mx-auto px-6 pt-24 min-h-screen">
-      
+    <section className="relative flex items-start md:flex-row max-w-6xl mx-auto px-6 pt-10 min-h-screen">
+
       {/* Left Side - Fixed */}
-      <div className="md:w-1/2 sticky top-14 self-start">
+      <div className="md:w-1/2 sticky top-20 self-start">
 
         <div className="flex items-center space-x-6">
           {/* Profile Picture */}
-          <img 
-            src={profilePic} 
-            alt="Profile" 
-            className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-gray-600 shadow-lg"
+          <img
+            src={profilePic}
+            alt="Profile"
+            className="w-24 h-35 md:w-28 md:h-25 rounded-full object-cover border-2 border-gray-600 shadow-lg"
           />
 
           {/* Name Section */}
           <div>
             <h2 className="text-lg text-gray-400">Hi, I'm</h2>
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-neon-cyan via-[40%] via-neon-blue via-[60%] via-neon-pink via-[80%] via-neon-orange to-neon-purple bg-clip-text text-transparent">
-  Neelesh Bokkisam.
-</h1>
-
+            <h1 className="text-5xl md:text-5xl font-bold bg-gradient-to-r from-neon-cyan to-neon-purple to-neon-pink to-neon-orange to-neon-purple bg-clip-text text-transparent animate-text-shimmer transition duration-800">
+              Neelesh Bokkisam.
+            </h1>
 
           </div>
         </div>
 
-        <h1 className="text-4xl font-semibold text-gray-200 mt-4">
+        <h1 className="text-2xl font-semibold text-gray-200 mt-4">
           I <span className="text-neon-cyan">{displayedWord}</span>.
         </h1>
-        <p className="text-gray-400 mt-2 text-lg leading-relaxed">
-          Studying EECS & IEOR at UC Berkeley.  
-          Exploring artificial intelligence, machine learning, software engineering, NLP, algorithms, and high frequency trading.  
+        <p className="text-gray-400 mt-2 text-medium leading-relaxed">
+          Studying EECS & IEOR at UC Berkeley.
+          Exploring artificial intelligence, machine learning, software engineering, NLP, algorithms, and high frequency trading.
           :)
 
         </p>
 
         {/* Social Media Icons */}
         <div className="flex gap-6 mt-6">
-          <a href="https://github.com/neeleshbokkisam" target="_blank" rel="noopener noreferrer" 
+          <a href="https://github.com/neeleshbokkisam" target="_blank" rel="noopener noreferrer"
             className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
             {/* GitHub SVG */}
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -88,7 +87,7 @@ const HeroSection = () => {
             </svg>
           </a>
 
-          <a href="https://linkedin.com/in/neeleshbokkisam" target="_blank" rel="noopener noreferrer" 
+          <a href="https://linkedin.com/in/neeleshbokkisam" target="_blank" rel="noopener noreferrer"
             className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
             {/* LinkedIn SVG */}
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -98,7 +97,7 @@ const HeroSection = () => {
             </svg>
           </a>
 
-          <a href="https://instagram.com/neeleshbokkisam" target="_blank" rel="noopener noreferrer" 
+          <a href="https://instagram.com/neeleshbokkisam" target="_blank" rel="noopener noreferrer"
             className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
             {/* Instagram SVG */}
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -139,80 +138,81 @@ const HeroSection = () => {
               <div className="text-neon-purple mt-1">$ <span className="animate-pulse">█</span></div>
             </div>
           </div>
+          {/* Copyright Text Below */}
+          <p className="text-gray-500 text-sm mt-4">
+            © 2025 Neelesh Bokkisam. All rights reserved.
+          </p>
         </div>
       </div>
 
       {/* Right Side - Scrollable Projects with Dates & Hover Effect */}
-<div className="md:w-1/2 overflow-y-auto max-h-screen p-4">
-  <h2 className="text-xl text-gray-300 font-medium mb-4">Experience & Projects</h2>
-  <div className="space-y-6">
-    {projectData.map((project, index) => (
-      <div key={project.id} className="relative flex items-start justify-between gap-4">
+      <div className="md:w-1/2 overflow-y-auto max-h-screen p-4 self-start mt-4">
+        <h2 className="text-xl text-gray-300 font-medium mb-4">Experience & Projects</h2>
+        <div className="space-y-6">
+          {projectData.map((project, index) => (
+            <div key={project.id} className="relative flex items-start justify-between gap-4">
 
-        {/* Date - Left Aligned */}
-        <div className="text-gray-400 text-xs font-medium text-right w-[58px] flex-none">
-          {project.date}
-        </div>
+              {/* Date - Left Aligned */}
+              <div className="text-gray-400 text-xs font-medium text-right w-[100px] flex-none">
+                {project.date}
+              </div>
 
-        {/* Project Tile - Right Aligned */}
-        <article 
-          className="group relative bg-background-light border border-neon-cyan/20 rounded-md overflow-hidden h-[220px] flex-grow max-w-[600px] transition-all duration-500"
-          onMouseEnter={() => setHoveredProject(project.id)}
-          onMouseLeave={() => setHoveredProject(null)}
-        >
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-5000 transition-opacity duration-500"></div>
-          </div>
+              {/* Project Tile - Right Aligned */}
+              {/* Project Tile - Clickable */}
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative bg-background-light border border-neon-cyan/20 rounded-md overflow-hidden h-[180px] flex-grow max-w-[600px] transition-all duration-500 hover:cursor-pointer"
+              >
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-75"></div> {/* Darker overlay */}
+                </div>
 
-          {/* Category Tag */}
-          <div className="absolute top-4 right-4 bg-neon-purple/80 text-white text-xs px-3 py-1 rounded-full z-10 backdrop-blur-sm">
-            {project.category}
-          </div>
+                {/* Category Tag */}
+                <div className="absolute top-5 right-4 bg-neon-purple/80 text-white text-xs px-3 py-1 rounded-full z-10 backdrop-blur-sm">
+                  {project.category}
+                </div>
 
-          {/* Title - Moves from Center to Top-Left */}
-          <div className="absolute inset-0 flex items-center justify-center text-center p-6 z-10 
-            transition-all duration-500 ease-in-out">
-              <h3 className="text-lg font-extrabold text-text-primary font-sans transition-all duration-500 ease-in-out transform
-                group-hover:translate-y-[-275%] group-hover:translate-x-[-21%]">
-                {project.title}
-              </h3>
+                {/* Title - Moves from Center to Top-Left */}
+                <div className="absolute inset-0 flex items-center justify-center text-center p-6 z-10 transition-all duration-500 ease-in-out">
+                  <div className="absolute inset-0 flex items-center justify-center text-center p-6 z-10">
+                    <h3 className="text-2xl font-extrabold text-white font-cool uppercase tracking-wide 
+    transition-all duration-500 ease-in-out group-hover:text-neon-cyan
+    group-hover:translate-y-[-160%] group-hover:translate-x-[-20%]">
+                      {project.title}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Other Details - Stays Hidden Until Hover */}
+                <div className="absolute inset-0 flex flex-col justify-end items-center text-center p-6 pb-6 z-10 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <p className="text-gray-300 mb-4 text-sm font-minimalist leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack - Adjusted Position */}
+                  <div className="flex flex-wrap gap-2 mb-1 justify-center">
+                    {project.techStack.map((tech) => (
+                      <span key={tech} className="px-3 py-1 bg-background/50 text-neon-cyan text-sm rounded border border-neon-cyan/30">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+              </a>
+
             </div>
-
-          {/* Other Details - Stays Hidden Until Hover */}
-          <div className="absolute inset-0 flex flex-col justify-end items-center text-center p-6 z-10 opacity-0 group-hover:opacity-100 transition-all duration-500">
-          <p className="text-text-secondary mb-4 text-sm">{project.description}</p>
-
-          {/* Tech Stack */}
-          <div className="flex flex-wrap gap-2 mb-4 justify-center">
-            {project.techStack.map((tech) => (
-              <span key={tech} className="px-2 py-1 bg-background/50 text-neon-cyan text-xs rounded border border-neon-cyan/30">
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* Action Buttons - Properly Centered */}
-          <div className="flex justify-center gap-6">
-            <button className="flex items-center gap-2 text-neon-cyan hover:text-white transition-colors">
-              <span>View Details</span>
-            </button>
-            <div className="w-px h-5 bg-text-secondary/30 self-center"></div>
-            <button className="flex items-center gap-2 text-text-secondary hover:text-white transition-colors">
-              <span>Demo</span>
-            </button>
-          </div>
+          ))}
         </div>
-        </article>
       </div>
-    ))}
-  </div>
-</div>
 
 
     </section>

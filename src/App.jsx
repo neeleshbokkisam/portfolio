@@ -35,9 +35,9 @@ export const App = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <ProjectsSection />
+        {/* <ProjectsSection /> */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

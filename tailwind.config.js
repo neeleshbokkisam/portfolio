@@ -17,6 +17,7 @@ export default {
         fontFamily: {
           'sans': ['Inter', 'sans-serif'],
           'mono': ['JetBrains Mono', 'monospace'],
+          'cool': ['Poppins', 'sans-serif'],
         },
         animation: {
           'text-shimmer': 'text-shimmer 2.5s ease infinite',

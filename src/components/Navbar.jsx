@@ -31,7 +31,7 @@ const Navbar = () => {
           <span className="text-neon-cyan">_</span>
         </a>
 
-        {/* Desktop Menu */}
+        {/* Desktop Menu
         <nav className="hidden md:flex gap-8 items-center">
           <NavLink href="#projects">Projects</NavLink>
           <NavLink href="#skills">Skills</NavLink>
@@ -44,9 +44,9 @@ const Navbar = () => {
               </svg>
             </button>
           </NavLink>
-        </nav>
+        </nav> */}
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button
         <button 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
           className="md:hidden text-text-primary p-2 focus:outline-none"
@@ -58,9 +58,9 @@ const Navbar = () => {
               <path d="M3 12h18M3 6h18M3 18h18" />
             )}
           </svg>
-        </button>
+        </button> */}
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu
         {mobileMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-background-light/95 backdrop-blur-lg p-4 flex flex-col gap-4 md:hidden border-t border-neon-cyan/20">
             <NavLink href="#projects" mobile onClick={() => setMobileMenuOpen(false)}>Projects</NavLink>
@@ -68,7 +68,7 @@ const Navbar = () => {
             <NavLink href="#about" mobile onClick={() => setMobileMenuOpen(false)}>About</NavLink>
             <NavLink href="#contact" mobile onClick={() => setMobileMenuOpen(false)}>Connect</NavLink>
           </div>
-        )}
+        )} */}
       </div>
     </header>
   );
