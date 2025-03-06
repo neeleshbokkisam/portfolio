@@ -184,8 +184,8 @@ const HeroSection = () => {
                 <div className="absolute inset-0 flex items-center justify-center text-center p-6 z-10 transition-all duration-500 ease-in-out">
                   <div className="absolute inset-0 flex items-center justify-center text-center p-6 z-10">
                     <h3 className="text-2xl font-extrabold text-white font-cool uppercase tracking-wide 
-    transition-all duration-500 ease-in-out group-hover:text-neon-cyan
-    group-hover:translate-y-[-160%] group-hover:translate-x-[-20%]">
+                    transition-all duration-500 ease-in-out group-hover:text-neon-cyan
+                      group-hover:translate-y-[-160%] group-hover:translate-x-[-20%]">
                       {project.title}
                     </h3>
                   </div>
@@ -207,11 +207,29 @@ const HeroSection = () => {
                   </div>
                 </div>
 
+
+
               </a>
 
             </div>
+
           ))}
         </div>
+        {/* Resume Button - Absolute Positioning with Bottom Space */}
+        <div className="relative w-full mt-6 pb-16 flex justify-center">
+          <a
+            href="https://drive.google.com/file/d/1A5kbrzP8BCWKJUJFXg-Lnt-ZXHn5XBco/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-gray-800 text-white rounded-lg border border-gray-600 hover:bg-gray-700 hover:border-gray-500 transition-all duration-300 absolute left-[190px]"
+          >
+            View My 1-Page Resume →
+          </a>
+        </div>
+
+
+
+
       </div>
 
 
