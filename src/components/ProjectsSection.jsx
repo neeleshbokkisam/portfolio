@@ -73,6 +73,16 @@ const projectData = [
     date: "Completed",
     image: "/fin.png",
     link: "https://github.com/neeleshbokkisam/option-pricing",
+  },
+  {
+    id: 8,
+    title: "Mouse",
+    description: "Move cursor and click using pointer finger.",
+    category: "Project",
+    techStack: ["OpenCV", "MediaPipe", "PyAutoGui"],
+    date: "Completed",
+    image: "/mouse.png",
+    link: "https://github.com/neeleshbokkisam/mouse",
   }
 ];
 
