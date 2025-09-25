@@ -135,7 +135,7 @@ const HeroSection = () => {
             <img
               src={profilePic}
               alt="Neelesh Bokkisam"
-              className="relative w-72 h-72 object-cover border-2 border-accent group-hover:scale-105 transition-transform duration-500"
+              className="relative w-56 h-56 object-cover border-2 border-accent group-hover:scale-105 transition-transform duration-500"
             />
             {/* Floating elements around image */}
             <div className="absolute -top-4 -right-4 w-6 h-6 bg-accent/20 rounded-full animate-pulse"></div>
@@ -145,27 +145,27 @@ const HeroSection = () => {
           {/* Separate floating info elements */}
           
           {/* Education card */}
-          <div className="absolute -bottom-12 -left-4 bg-background-light/80 backdrop-blur-sm border border-accent/20 p-4 max-w-xs group hover:border-accent/40 transition-all duration-300 hover:transform hover:scale-105 hover:-translate-y-1">
-            <div className="absolute -top-1 -left-1 w-3 h-3 border-l border-t border-accent/30"></div>
-            <div className="text-text-secondary text-sm">
+          <div className="absolute -bottom-12 -left-4 bg-background-light/80 backdrop-blur-sm border border-accent/20 p-3 max-w-xs group hover:border-accent/40 transition-all duration-300 hover:transform hover:scale-105 hover:-translate-y-1">
+            <div className="absolute -top-1 -left-1 w-2 h-2 border-l border-t border-accent/30"></div>
+            <div className="text-text-secondary text-xs">
               <span className="text-accent font-medium">EECS & IEOR</span> at UC Berkeley
             </div>
             <div className="absolute top-1 right-1 w-1 h-1 bg-accent/30 rounded-full animate-pulse"></div>
           </div>
 
           {/* Passion card */}
-          <div className="absolute -top-8 -right-8 bg-background-light/80 backdrop-blur-sm border border-accent/20 p-4 max-w-xs group hover:border-accent/40 transition-all duration-300 hover:transform hover:scale-105 hover:-translate-y-1">
-            <div className="absolute -bottom-1 -right-1 w-3 h-3 border-r border-b border-accent/30"></div>
-            <div className="text-text-secondary text-sm">
+          <div className="absolute -top-8 -right-8 bg-background-light/80 backdrop-blur-sm border border-accent/20 p-3 max-w-xs group hover:border-accent/40 transition-all duration-300 hover:transform hover:scale-105 hover:-translate-y-1">
+            <div className="absolute -bottom-1 -right-1 w-2 h-2 border-r border-b border-accent/30"></div>
+            <div className="text-text-secondary text-xs">
               Passionate about <span className="text-accent font-medium">AI & ML</span>
             </div>
             <div className="absolute bottom-1 left-1 w-1 h-1 bg-accent/30 rounded-full animate-pulse delay-500"></div>
           </div>
 
           {/* Location card */}
-          <div className="absolute top-1/2 -right-16 bg-background-light/80 backdrop-blur-sm border border-accent/20 p-3 max-w-xs group hover:border-accent/40 transition-all duration-300 hover:transform hover:scale-105 hover:-translate-y-1">
-            <div className="absolute -top-1 -left-1 w-2 h-2 border-l border-t border-accent/30"></div>
-            <div className="text-text-secondary text-sm">
+          <div className="absolute top-1/2 -right-8 bg-background-light/80 backdrop-blur-sm border border-accent/20 p-2 max-w-xs group hover:border-accent/40 transition-all duration-300 hover:transform hover:scale-105 hover:-translate-y-1">
+            <div className="absolute -top-1 -left-1 w-1.5 h-1.5 border-l border-t border-accent/30"></div>
+            <div className="text-text-secondary text-xs">
               <span className="text-accent font-medium">Berkeley, CA</span>
             </div>
             <div className="absolute top-1 right-1 w-1 h-1 bg-accent/30 rounded-full animate-pulse delay-1000"></div>
