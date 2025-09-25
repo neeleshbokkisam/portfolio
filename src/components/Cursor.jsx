@@ -66,19 +66,20 @@ const Cursor = () => {
 
   const cursorClasses = `
     fixed pointer-events-none z-50 transform -translate-x-1/2 -translate-y-1/2
-    transition-transform duration-200 ease-out
+    transition-transform duration-150 ease-out
     ${hidden ? 'opacity-0' : 'opacity-100'}
     ${clicked ? 'scale-75' : ''}
     ${linkHovered ? 'scale-150' : ''}
   `;
 
   const innerCursorClasses = `
-    absolute bg-gray-500 rounded-full w-4 h-4
+    absolute bg-accent/60 rounded-full w-3 h-3
     left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-    transition-all duration-200 ease-out
-    ${clicked ? 'opacity-30' : 'opacity-50'}
-    ${linkHovered ? 'opacity-75' : ''}
+    transition-all duration-150 ease-out
+    ${clicked ? 'opacity-20 scale-75' : 'opacity-50'}
+    ${linkHovered ? 'opacity-70 scale-125' : ''}
   `;
+
 
 
 
@@ -89,15 +90,17 @@ const Cursor = () => {
   if (!shouldShowCustomCursor) return null;
 
   return (
-    <div
-      className={cursorClasses}
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-      }}
-    >
-      <div className={innerCursorClasses}></div>
-    </div>
+    <>
+      {/* Main cursor */}
+      <div
+        className={cursorClasses}
+        style={{
+          transform: `translate(${position.x}px, ${position.y}px) translate(-50%, -50%)`,
+        }}
+      >
+        <div className={innerCursorClasses}></div>
+      </div>
+    </>
   );
 };
 

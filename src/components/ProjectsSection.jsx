@@ -1,225 +1,270 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const projectData = [
-  // Experience
   {
     id: 1,
     title: "Meta",
-    description: "Incoming Software Engineering Intern",
+    description: "Software Engineering Intern - Built scalable backend systems",
     category: "Experience",
-    techStack: ["Software Engineering"],
-    date: "June 2025 – Aug 2025",
+    date: "June 2024 – Aug 2024",
     image: "/meta.png",
     link: "https://about.meta.com/",
+    featured: true
   },
   {
     id: 2,
     title: "Coca-Cola Reyes",
-    description: "Technical ML Consultant (contract)",
+    description: "Technical ML Consultant building NLP solutions for enterprise",
     category: "Experience",
-    techStack: ["NLP", "AWS", "Python", "PostgreSQL"],
-    date: "Aug 2024 – Current",
+    date: "Aug 2023 – May 2024",
     image: "/coc.png",
     link: "https://www.reyescocacola.com/our-brands",
+    featured: true
   },
   {
     id: 3,
     title: "USC NLP Research",
-    description: "NLP Research Intern",
+    description: "Research Intern working on Natural Language Processing",
     category: "Experience",
-    techStack: ["LLMs", "Information Retrieval"],
     date: "June 2024 – Aug 2024",
     image: "/usc.png",
     link: "https://www.usc.edu/",
+    featured: false
   },
   {
     id: 4,
-    title: "Core & MSN Pharma",
-    description: "R&D Research Intern",
-    category: "Experience",
-    techStack: ["MERN", "AWS S3", "HIPAA Compliance"],
-    date: "April 2023 – June 2023",
-    image: "/core.png",
-    // link: "https://www.coreandmsnpharma.com/",
-  },
-
-  // Projects
-  {
-    id: 5,
     title: "ProductLead.ai",
-    description: "Building a Discord bot for feedback aggregation and analysis.",
+    description: "Discord bot for feedback aggregation using NLP",
     category: "Project",
-    techStack: ["Python", "NLP", "Flask", "Redis"],
     date: "Ongoing",
     image: "/pro.png",
-    // link: "https://github.com/neeleshbokkisam/ProductLead.ai",
+    featured: true
   },
   {
-    id: 6,
+    id: 5,
     title: "CryptoVault",
-    description: "Developed a crypto wallet management system with transaction tracking.",
+    description: "Crypto wallet management system with transaction tracking",
     category: "Project",
-    techStack: ["Node.js", "Ethers.js", "Web3.js"],
     date: "Completed",
     image: "/eth.png",
     link: "https://github.com/neeleshbokkisam/Crypto_wallet",
+    featured: false
   },
   {
-    id: 7,
+    id: 6,
     title: "OptionXplore",
-    description: "Built an options pricing tool using Monte Carlo & Black-Scholes models.",
+    description: "Options pricing tool using Monte Carlo & Black-Scholes models",
     category: "Project",
-    techStack: ["Python", "NumPy", "Flask"],
     date: "Completed",
     image: "/fin.png",
     link: "https://github.com/neeleshbokkisam/option-pricing",
-  },
-  {
-    id: 8,
-    title: "Mouse",
-    description: "Move cursor and click using pointer finger.",
-    category: "Project",
-    techStack: ["OpenCV", "MediaPipe", "PyAutoGui"],
-    date: "Completed",
-    image: "/mouse.png",
-    link: "https://github.com/neeleshbokkisam/mouse",
+    featured: false
   }
 ];
 
-
-
 const ProjectsSection = () => {
   const [filter, setFilter] = useState('All');
-  const [hoveredProject, setHoveredProject] = useState(null);
+  const [visible, setVisible] = useState(false);
+  const categories = ['All', 'Experience', 'Project'];
 
-  const categories = ['All', ...new Set(projectData.map(project => project.category))];
+  useEffect(() => {
+    setVisible(true);
+  }, []);
 
   const filteredProjects = filter === 'All'
     ? projectData
     : projectData.filter(project => project.category === filter);
 
   return (
-    <section id="projects" className="py-20 px-4 relative">
-      {/* Section heading with gradient underline */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-neon-cyan to-neon-purple mx-auto rounded-full"></div>
-        <p className="text-text-secondary mt-4 max-w-2xl mx-auto">
-          A showcase of my research and development work across various domains.
-        </p>
+    <section id="projects" className="py-24 px-6 relative overflow-hidden">
+      {/* Creative background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-10 w-64 h-64 border border-accent/5 rotate-45"></div>
+        <div className="absolute bottom-20 left-10 w-32 h-32 border border-accent/10 -rotate-12"></div>
       </div>
 
-      {/* Category filter */}
-      <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
-        {categories.map(category => (
-          <button
-            key={category}
-            onClick={() => setFilter(category)}
-            className={`px-4 py-2 rounded-full text-sm md:text-base transition-all duration-300 ${filter === category
-                ? 'bg-neon-cyan text-background shadow-neon-glow'
-                : 'bg-background-light text-text-secondary hover:text-neon-cyan'
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Creative section header with cool effects */}
+        <div className="relative mb-20 group">
+          <div className="absolute -top-4 -left-4 w-12 h-12 border-l-2 border-t-2 border-accent/30 group-hover:border-accent transition-colors duration-500"></div>
+          <div className="absolute -bottom-4 -right-4 w-8 h-8 border-r-2 border-b-2 border-accent/20 group-hover:border-accent transition-colors duration-500"></div>
+          
+          <div className="text-center relative">
+            {/* Animated background elements */}
+            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-32 h-32 border border-accent/10 rounded-full animate-spin-slow"></div>
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-16 h-16 border border-accent/15 rounded-full animate-pulse"></div>
+            
+            <h2 className="text-5xl md:text-7xl font-heading font-light text-accent mb-6 relative group-hover:transform group-hover:scale-105 transition-all duration-500 tracking-tight">
+              <span className="block group-hover:text-accent-muted transition-colors duration-300">Work &</span>
+              <span className="block text-3xl md:text-5xl text-text-secondary ml-8 group-hover:text-accent transition-colors duration-500 font-light">
+                Projects
+              </span>
+            </h2>
+            
+            {/* Animated underline */}
+            <div className="w-24 h-0.5 bg-accent mx-auto mb-6 group-hover:w-32 group-hover:bg-accent-muted transition-all duration-500 relative overflow-hidden">
+              <div className="absolute inset-0 bg-accent/60 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 delay-200"></div>
+            </div>
+            
+            <p className="text-text-secondary max-w-2xl mx-auto text-lg group-hover:text-accent-muted transition-colors duration-500">
+              Professional experience and personal projects that showcase my passion for technology
+            </p>
+            
+            {/* Floating accent elements */}
+            <div className="absolute top-2 right-2 w-2 h-2 bg-accent/40 rounded-full animate-pulse group-hover:animate-bounce"></div>
+            <div className="absolute bottom-2 left-2 w-1.5 h-1.5 bg-accent/30 rounded-full animate-pulse delay-1000 group-hover:animate-bounce delay-300"></div>
+          </div>
+        </div>
+
+        {/* Cool filter buttons with creative effects */}
+        <div className="flex justify-center gap-8 mb-20">
+          {categories.map((category, index) => (
+            <button
+              key={category}
+              onClick={() => setFilter(category)}
+              className={`relative group px-8 py-4 font-medium transition-all duration-300 hover:transform hover:scale-110 hover:-translate-y-2 ${
+                filter === category
+                  ? 'text-accent'
+                  : 'text-text-secondary hover:text-accent'
               }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+              style={{ transform: `rotate(${index * 2 - 2}deg)` }}
+            >
+              {/* Background effects */}
+              <div className={`absolute inset-0 border border-accent/20 rounded-lg transition-all duration-300 ${
+                filter === category 
+                  ? 'border-accent bg-accent/10' 
+                  : 'group-hover:border-accent/40 group-hover:bg-accent/5'
+              }`}></div>
+              
+              {/* Animated underline */}
+              <div className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-500 ${
+                filter === category ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></div>
+              
+              {/* Floating particles on hover */}
+              <div className="absolute -top-2 -right-2 w-1 h-1 bg-accent/40 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-300"></div>
+              <div className="absolute -bottom-2 -left-2 w-0.5 h-0.5 bg-accent/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce delay-200 transition-all duration-300"></div>
+              
+              <span className="relative z-10">{category}</span>
+            </button>
+          ))}
+        </div>
 
-      {/* Projects grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-        {filteredProjects.map(project => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            isHovered={hoveredProject === project.id}
-            onMouseEnter={() => setHoveredProject(project.id)}
-            onMouseLeave={() => setHoveredProject(null)}
-          />
-        ))}
-      </div>
+        {/* Cool stats section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="text-center group">
+            <div className="text-4xl font-light text-accent mb-2 group-hover:scale-110 transition-transform duration-300">6+</div>
+            <div className="text-text-secondary group-hover:text-accent transition-colors duration-300">Projects</div>
+          </div>
+          <div className="text-center group">
+            <div className="text-4xl font-light text-accent mb-2 group-hover:scale-110 transition-transform duration-300">3</div>
+            <div className="text-text-secondary group-hover:text-accent transition-colors duration-300">Companies</div>
+          </div>
+          <div className="text-center group">
+            <div className="text-4xl font-light text-accent mb-2 group-hover:scale-110 transition-transform duration-300">3+</div>
+            <div className="text-text-secondary group-hover:text-accent transition-colors duration-300">Years Experience</div>
+          </div>
+        </div>
 
-      {/* More projects button */}
-      <div className="text-center mt-12">
-        <button className="group relative px-6 py-3 bg-background-light border border-neon-cyan rounded-sm overflow-hidden hover:shadow-neon-glow transition duration-300">
-          <span className="relative z-10 text-neon-cyan group-hover:text-background transition duration-300">View All Projects</span>
-          <span className="absolute inset-0 bg-neon-cyan transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-        </button>
+        {/* All projects with consistent horizontal layout */}
+        <div className="space-y-8">
+          {filteredProjects.map((project, index) => (
+            <CreativeProjectCard 
+              key={project.id} 
+              project={project} 
+              index={index}
+            />
+          ))}
+        </div>
+
+        {/* Call to action section */}
+        <div className="mt-20 text-center">
+          <div className="relative inline-block group">
+            <div className="absolute -inset-4 border border-accent/20 rotate-2 group-hover:rotate-4 transition-transform duration-500"></div>
+            <div className="absolute -inset-2 border border-accent/10 -rotate-1 group-hover:-rotate-2 transition-transform duration-500"></div>
+            
+            <div className="relative bg-background-light/20 border border-accent/30 p-8 rounded-lg group-hover:border-accent/50 transition-all duration-300">
+              <h3 className="text-2xl font-light text-accent mb-4 group-hover:text-accent-muted transition-colors duration-300">
+                Interested in working together?
+              </h3>
+              <p className="text-text-secondary mb-6 group-hover:text-accent-muted transition-colors duration-300">
+                Let's discuss your next project or explore opportunities.
+              </p>
+              <a
+                href="mailto:neeleshbokkisam@berkeley.edu"
+                className="inline-block px-8 py-3 border border-accent text-accent hover:bg-accent hover:text-background transition-all duration-300 hover:transform hover:scale-105 hover:-translate-y-1"
+              >
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
-const ProjectCard = ({ project, isHovered, onMouseEnter, onMouseLeave }) => {
+
+const CreativeProjectCard = ({ project, index }) => {
+  const isEven = index % 2 === 0;
+  
   return (
-    <article
-      className="group relative bg-background-light border border-neon-cyan/20 rounded-md overflow-hidden h-[400px] transform transition-all duration-500"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      {/* Background image with overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
-        />
-        {/* Darker overlay for better contrast */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      </div>
-
-      {/* Content */}
-      <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
-        <span className="inline-block px-3 py-1 bg-neon-purple/80 text-white text-xs rounded-full mb-3 backdrop-blur-sm">
-          {project.category}
-        </span>
-
-
-        <h3 className="text-2xl font-extrabold text-white group-hover:text-neon-cyan transition-colors">
-          {project.title}
-        </h3>
-        <p className="text-gray-300">{project.description}</p>
-
-
-        <p className={`text-text-secondary mb-4 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
-          {project.description}
-        </p>
-
-        {/* Tech stack */}
-        <div className={`flex flex-wrap gap-2 mb-4 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
-          {project.techStack.map(tech => (
-            <span key={tech} className="px-2 py-1 bg-background/50 text-neon-cyan text-xs rounded backdrop-blur-sm border border-neon-cyan/30">
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        {/* Action links */}
-        <div className={`flex gap-3 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
-          <button className="flex items-center gap-2 text-neon-cyan hover:text-white transition-colors">
-            <span>View Details</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
-          <div className="w-px h-5 bg-text-secondary/30 self-center"></div>
-          <button className="flex items-center gap-2 text-text-secondary hover:text-white transition-colors">
-            <span>Demo</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-            </svg>
-          </button>
+    <div className={`group relative ${isEven ? 'lg:ml-16' : 'lg:mr-16'} hover:transform hover:scale-[1.02] transition-all duration-500`}>
+      {/* Creative background elements */}
+      <div className="absolute -inset-2 border border-accent/10 rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
+      <div className="absolute -inset-4 border border-accent/5 rotate-3 group-hover:rotate-6 transition-transform duration-700"></div>
+      
+      {/* Floating accent elements */}
+      <div className="absolute -top-2 -right-2 w-2 h-2 bg-accent/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-300"></div>
+      <div className="absolute -bottom-2 -left-2 w-1.5 h-1.5 bg-accent/20 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce delay-200 transition-all duration-300"></div>
+      
+      <div className="relative bg-background-light/20 border border-accent/20 rounded-lg overflow-hidden hover:border-accent/40 transition-all duration-500 hover:transform hover:scale-102 hover:rotate-1 hover:shadow-lg group-hover:bg-background-light/30">
+        <div className="flex flex-col md:flex-row">
+          {/* Image with creative positioning */}
+          <div className={`w-full md:w-48 h-32 flex-shrink-0 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 relative"
+            />
+            {/* Image overlay effect */}
+            <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-500"></div>
+          </div>
+          
+          {/* Content with creative layout */}
+          <div className={`flex-1 p-6 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
+            <div className="flex items-center gap-4 mb-3">
+              <h3 className="text-xl font-medium text-accent group-hover:text-accent-muted transition-colors">
+                {project.title}
+              </h3>
+              <span className="px-3 py-1 bg-accent/20 text-accent text-sm rounded-full">
+                {project.category}
+              </span>
+            </div>
+            
+            <p className="text-text-secondary mb-4 leading-relaxed">
+              {project.description}
+            </p>
+            
+            <div className="flex items-center justify-between">
+              <span className="text-text-secondary text-sm">{project.date}</span>
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:text-accent-muted transition-colors font-medium group-hover:transform group-hover:scale-110 group-hover:translate-x-2"
+                >
+                  View →
+                </a>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Decorative corner */}
-      <div className="absolute top-0 right-0 border-t-2 border-r-2 border-neon-cyan w-8 h-8 opacity-70"></div>
-      <div className="absolute bottom-0 left-0 border-b-2 border-l-2 border-neon-cyan w-8 h-8 opacity-70"></div>
-    </article>
+    </div>
   );
 };
-export { projectData };
 
 export default ProjectsSection;

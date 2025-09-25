@@ -1,35 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { projectData } from './ProjectsSection'; // Import the project data
 import profilePic from '../../pic.png';
 
-
 const HeroSection = () => {
-  const [visible, setVisible] = useState(false);
-  const [hoveredProject, setHoveredProject] = useState(null);
-
-  // Words to cycle through
-  const words = ["Develop", "Design", "Create"];
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentWord, setCurrentWord] = useState(0);
   const [displayedWord, setDisplayedWord] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const words = ["Developer", "Researcher", "Innovator"];
 
   useEffect(() => {
-    setVisible(true);
-  }, []);
-
-  // Typewriter effect
-  useEffect(() => {
-    const current = words[currentWordIndex];
-
+    const current = words[currentWord];
     const timeout = setTimeout(() => {
       if (!isDeleting && displayedWord === current) {
-        setTimeout(() => setIsDeleting(true), 1500);
+        setTimeout(() => setIsDeleting(true), 2000);
         return;
       }
 
       if (isDeleting && displayedWord === '') {
         setIsDeleting(false);
-        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        setCurrentWord((prev) => (prev + 1) % words.length);
         return;
       }
 
@@ -38,200 +26,152 @@ const HeroSection = () => {
         : current.substring(0, displayedWord.length + 1);
 
       setDisplayedWord(nextWord);
-    }, isDeleting ? 80 : 120);
+    }, isDeleting ? 100 : 150);
 
     return () => clearTimeout(timeout);
-  }, [displayedWord, currentWordIndex, isDeleting, words]);
+  }, [displayedWord, currentWord, isDeleting, words]);
 
   return (
-    <section className="relative flex items-start md:flex-row max-w-6xl mx-auto px-6 pt-10 min-h-screen">
-
-      {/* Left Side - Fixed */}
-      <div className="md:w-1/2 sticky top-20 self-start">
-
-        <div className="flex items-center space-x-6">
-          {/* Profile Picture */}
-          <img
-            src={profilePic}
-            alt="Profile"
-            className="w-24 h-35 md:w-28 md:h-25 rounded-full object-cover border-2 border-gray-600 shadow-lg"
-          />
-
-          {/* Name Section */}
-          <div>
-            <h2 className="text-lg text-gray-400">Hi, I'm</h2>
-            <h1 className="text-5xl md:text-5xl font-bold bg-gradient-to-r from-neon-cyan to-neon-purple to-neon-pink to-neon-orange to-neon-purple bg-clip-text text-transparent animate-text-shimmer transition duration-800">
-              Neelesh Bokkisam.
-            </h1>
-
-          </div>
-        </div>
-
-        <h1 className="text-2xl font-semibold text-gray-200 mt-4">
-          I <span className="text-neon-cyan">{displayedWord}</span>.
-        </h1>
-        <p className="text-gray-400 mt-2 text-medium leading-relaxed">
-          Studying EECS & IEOR at UC Berkeley.
-          Exploring artificial intelligence, machine learning, software engineering, NLP, algorithms, and high frequency trading.
-          :)
-
-        </p>
-
-        {/* Social Media Icons */}
-        <div className="flex gap-6 mt-6">
-          <a href="https://github.com/neeleshbokkisam" target="_blank" rel="noopener noreferrer"
-            className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
-            {/* GitHub SVG */}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-            </svg>
-          </a>
-
-          <a href="https://linkedin.com/in/neeleshbokkisam" target="_blank" rel="noopener noreferrer"
-            className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
-            {/* LinkedIn SVG */}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-
-          <a href="https://instagram.com/neeleshbokkisam" target="_blank" rel="noopener noreferrer"
-            className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
-            {/* Instagram SVG */}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
-
-          <a href="mailto:neeleshbokkisam@berkeley.edu"
-            className="w-10 h-10 flex justify-center items-center rounded-full bg-background-light border border-neon-cyan/20 text-text-secondary hover:text-neon-cyan hover:border-neon-cyan/60 transition-all duration-300">
-            {/* Gmail SVG */}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 6 12 13 2 6"></path>
-              <rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect>
-            </svg>
-          </a>
-        </div>
-
-
-
-        {/* Terminal Box */}
-        <div className="mt-8 w-[480px] opacity-70 hover:opacity-100 transition-opacity duration-300">
-          <div className="bg-background-light border border-neon-cyan/30 rounded-md p-4 shadow-neon-glow">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <div className="text-xs text-text-secondary ml-2">terminal</div>
-            </div>
-            <div className="font-mono text-xs">
-              <div className="text-neon-purple">$ whoami</div>
-              <div className="text-neon-cyan">neelesh_bokkisam</div>
-              <div className="text-neon-purple">$ skills --top</div>
-              <div className="text-neon-cyan">['javascript', 'react', 'python']</div>
-              <div className="text-neon-purple">$ status</div>
-              <div className="text-neon-cyan">ready_to_collaborate</div>
-              <div className="text-neon-purple mt-1">$ <span className="animate-pulse">█</span></div>
-            </div>
-          </div>
-          {/* Copyright Text Below */}
-          <p className="text-gray-500 text-sm mt-4">
-            © 2025 Neelesh Bokkisam. All rights reserved.
-          </p>
-        </div>
+    <section id="home" className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+      {/* Creative Background Elements */}
+      <div className="absolute inset-0">
+        {/* Geometric shapes */}
+        <div className="absolute top-20 left-10 w-32 h-32 border border-accent/20 rotate-45 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 border border-accent/10 rotate-12"></div>
+        <div className="absolute bottom-32 left-1/4 w-16 h-16 border border-accent/15 rotate-45"></div>
+        <div className="absolute bottom-20 right-1/3 w-20 h-20 border border-accent/10 -rotate-12"></div>
+        
+        {/* Subtle floating dots - reduced animations */}
+        <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-accent/30 rounded-full hover:bg-accent/60 hover:scale-150 transition-all duration-200 cursor-pointer"></div>
+        <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-accent/40 rounded-full hover:bg-accent/70 hover:scale-200 transition-all duration-200 cursor-pointer"></div>
+        <div className="absolute bottom-1/3 left-1/5 w-1.5 h-1.5 bg-accent/25 rounded-full hover:bg-accent/50 hover:scale-150 transition-all duration-200 cursor-pointer"></div>
       </div>
 
-      {/* Right Side - Scrollable Projects with Dates & Hover Effect */}
-      <div className="md:w-1/2 overflow-y-auto max-h-screen p-4 self-start mt-4">
-        <h2 className="text-xl text-gray-300 font-medium mb-4">Experience & Projects</h2>
-        <div className="space-y-6">
-          {projectData.map((project, index) => (
-            <div key={project.id} className="relative flex items-start justify-between gap-4">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+        {/* Left Side - Content */}
+        <div className="space-y-8">
+          {/* Greeting with creative styling */}
+          <div className="relative">
+            <div className="absolute -top-2 -left-2 w-8 h-8 border-l-2 border-t-2 border-accent/50"></div>
+            <div className="text-lg text-accent font-mono">Hello, I'm</div>
+          </div>
 
-              {/* Date - Left Aligned */}
-              <div className="text-gray-400 text-xs font-medium text-right w-[100px] flex-none">
-                {project.date}
-              </div>
+          {/* Name with cool animations */}
+          <div className="relative group">
+            <h1 className="text-6xl md:text-8xl font-heading font-light text-accent leading-tight tracking-tight group-hover:transform group-hover:scale-105 transition-all duration-500">
+              <span className="block group-hover:text-accent-muted transition-colors duration-300 hover:transform hover:translate-x-2 hover:skew-x-2 transition-all duration-300 cursor-default">
+                Neelesh
+              </span>
+              <span className="block text-4xl md:text-6xl text-text-secondary ml-8 group-hover:text-accent transition-colors duration-500 hover:transform hover:translate-x-4 hover:skew-x-1 transition-all duration-300 cursor-default font-light">
+                Bokkisam
+              </span>
+            </h1>
+            
+            {/* Animated decorative line */}
+            <div className="absolute -bottom-4 left-0 w-24 h-0.5 bg-accent group-hover:w-32 group-hover:bg-accent-muted transition-all duration-500 relative overflow-hidden">
+              <div className="absolute inset-0 bg-accent/60 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 delay-200"></div>
+            </div>
+            
+            {/* Floating accent elements */}
+            <div className="absolute -top-2 -right-2 w-2 h-2 bg-accent/40 rounded-full animate-pulse group-hover:animate-bounce"></div>
+            <div className="absolute -bottom-2 -left-2 w-1.5 h-1.5 bg-accent/30 rounded-full animate-pulse delay-1000 group-hover:animate-bounce delay-300"></div>
+          </div>
 
-              {/* Project Tile - Right Aligned */}
-              {/* Project Tile - Clickable */}
+          {/* Animated role with creative container */}
+          <div className="relative">
+            <div className="inline-block px-6 py-3 border border-accent/30 bg-background-light/50 backdrop-blur-sm">
+              <span className="text-xl text-text-secondary">
+                I am a <span className="text-accent font-medium">{displayedWord}</span>
+                <span className="animate-pulse">|</span>
+              </span>
+            </div>
+          </div>
+
+
+          {/* CTA Buttons with creative layout */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#projects"
+              className="group relative px-8 py-4 border-2 border-accent text-accent font-medium transition-all duration-300 hover:bg-accent hover:text-background hover:transform hover:scale-105 hover:-translate-y-1"
+            >
+              <span className="relative z-10">View My Work</span>
+              <div className="absolute inset-0 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+            </a>
+            <a
+              href="mailto:neeleshbokkisam@berkeley.edu"
+              className="px-8 py-4 border border-border text-text-secondary font-medium transition-all duration-300 hover:border-accent hover:text-accent hover:transform hover:scale-105 hover:-translate-y-1"
+            >
+              Get In Touch
+            </a>
+          </div>
+
+          {/* Social Links with creative styling */}
+          <div className="flex gap-6">
+            {[
+              { name: 'GitHub', href: 'https://github.com/neeleshbokkisam' },
+              { name: 'LinkedIn', href: 'https://linkedin.com/in/neeleshbokkisam' },
+              { name: 'Email', href: 'mailto:neeleshbokkisam@berkeley.edu' }
+            ].map((link, index) => (
               <a
-                href={project.link}
+                key={link.name}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-background-light border border-neon-cyan/20 rounded-md overflow-hidden h-[180px] flex-grow max-w-[600px] transition-all duration-500 hover:cursor-pointer"
+                className="group relative text-text-secondary hover:text-accent transition-all duration-300 hover:transform hover:scale-110 hover:-translate-y-1"
               >
-                {/* Background Image */}
-                <div className="absolute inset-0 z-0">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-75"></div> {/* Darker overlay */}
-                </div>
-
-                {/* Category Tag */}
-                <div className="absolute top-5 right-4 bg-neon-purple/80 text-white text-xs px-3 py-1 rounded-full z-10 backdrop-blur-sm">
-                  {project.category}
-                </div>
-
-                {/* Title - Moves from Center to Top-Left */}
-                <div className="absolute inset-0 flex items-center justify-center text-center p-6 z-10 transition-all duration-500 ease-in-out">
-                  <div className="absolute inset-0 flex items-center justify-center text-center p-6 z-10">
-                    <h3 className="text-2xl font-extrabold text-white font-cool uppercase tracking-wide 
-                    transition-all duration-500 ease-in-out group-hover:text-neon-cyan
-                      group-hover:translate-y-[-160%] group-hover:translate-x-[-20%]">
-                      {project.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Other Details - Stays Hidden Until Hover */}
-                <div className="absolute inset-0 flex flex-col justify-end items-center text-center p-6 pb-6 z-10 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <p className="text-gray-300 mb-4 text-sm font-minimalist leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Tech Stack - Adjusted Position */}
-                  <div className="flex flex-wrap gap-2 mb-1 justify-center">
-                    {project.techStack.map((tech) => (
-                      <span key={tech} className="px-3 py-1 bg-background/50 text-neon-cyan text-sm rounded border border-neon-cyan/30">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-
-
+                <span className="relative z-10">{link.name}</span>
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></div>
               </a>
+            ))}
+          </div>
+        </div>
 
+        {/* Right Side - Creative Profile Section */}
+        <div className="relative flex justify-center items-center">
+          {/* Main profile image with creative frame */}
+          <div className="relative group">
+            <div className="absolute -inset-4 border border-accent/20 rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
+            <div className="absolute -inset-2 border border-accent/40 -rotate-2 group-hover:-rotate-4 transition-transform duration-500"></div>
+            <img
+              src={profilePic}
+              alt="Neelesh Bokkisam"
+              className="relative w-72 h-72 object-cover border-2 border-accent group-hover:scale-105 transition-transform duration-500"
+            />
+            {/* Floating elements around image */}
+            <div className="absolute -top-4 -right-4 w-6 h-6 bg-accent/20 rounded-full animate-pulse"></div>
+            <div className="absolute -bottom-4 -left-4 w-4 h-4 bg-accent/30 rounded-full animate-pulse delay-1000"></div>
+          </div>
+
+          {/* Separate floating info elements */}
+          
+          {/* Education card */}
+          <div className="absolute -bottom-12 -left-4 bg-background-light/80 backdrop-blur-sm border border-accent/20 p-4 max-w-xs group hover:border-accent/40 transition-all duration-300 hover:transform hover:scale-105 hover:-translate-y-1">
+            <div className="absolute -top-1 -left-1 w-3 h-3 border-l border-t border-accent/30"></div>
+            <div className="text-text-secondary text-sm">
+              <span className="text-accent font-medium">EECS & IEOR</span> at UC Berkeley
             </div>
+            <div className="absolute top-1 right-1 w-1 h-1 bg-accent/30 rounded-full animate-pulse"></div>
+          </div>
 
-          ))}
+          {/* Passion card */}
+          <div className="absolute -top-8 -right-8 bg-background-light/80 backdrop-blur-sm border border-accent/20 p-4 max-w-xs group hover:border-accent/40 transition-all duration-300 hover:transform hover:scale-105 hover:-translate-y-1">
+            <div className="absolute -bottom-1 -right-1 w-3 h-3 border-r border-b border-accent/30"></div>
+            <div className="text-text-secondary text-sm">
+              Passionate about <span className="text-accent font-medium">AI & ML</span>
+            </div>
+            <div className="absolute bottom-1 left-1 w-1 h-1 bg-accent/30 rounded-full animate-pulse delay-500"></div>
+          </div>
+
+          {/* Location card */}
+          <div className="absolute top-1/2 -right-16 bg-background-light/80 backdrop-blur-sm border border-accent/20 p-3 max-w-xs group hover:border-accent/40 transition-all duration-300 hover:transform hover:scale-105 hover:-translate-y-1">
+            <div className="absolute -top-1 -left-1 w-2 h-2 border-l border-t border-accent/30"></div>
+            <div className="text-text-secondary text-sm">
+              <span className="text-accent font-medium">Berkeley, CA</span>
+            </div>
+            <div className="absolute top-1 right-1 w-1 h-1 bg-accent/30 rounded-full animate-pulse delay-1000"></div>
+          </div>
         </div>
-        {/* Resume Button - Absolute Positioning with Bottom Space */}
-        <div className="relative w-full mt-6 pb-16 flex justify-center">
-          <a
-            href="https://drive.google.com/file/d/1i_m5Xi8XRjJHkcfvY91V9l5sFLCiwGQf/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-gray-800 text-white rounded-lg border border-gray-600 hover:bg-gray-700 hover:border-gray-500 transition-all duration-300 absolute left-[190px]"
-          >
-            View My 1-Page Resume →
-          </a>
-        </div>
-
-
-
-
       </div>
-
 
     </section>
   );

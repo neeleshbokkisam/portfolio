@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
+import SkillsSection from './components/SkillsSection';
 import ProjectsSection from './components/ProjectsSection';
 import Footer from './components/Footer';
 import Cursor from './components/Cursor';
+import ParticleBackground from './components/ParticleBackground';
 
 export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,13 +33,15 @@ export const App = () => {
 
   return (
     <div className="min-h-screen bg-background text-text-primary font-sans">
+      <ParticleBackground />
       <Cursor />
       <Navbar />
       <main>
         <HeroSection />
-        {/* <ProjectsSection /> */}
+        <ProjectsSection />
+        <SkillsSection />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
