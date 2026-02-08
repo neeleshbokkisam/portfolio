@@ -4,27 +4,37 @@ const projectData = [
   {
     id: 1,
     title: "Meta",
-    description: "Software Engineering Intern - Built scalable backend systems",
+    description: "ML Engineering Intern",
     category: "Experience",
-    date: "June 2024 – Aug 2024",
+    date: "June 2025 – Aug 2025",
     image: "/meta.png",
     link: "https://about.meta.com/",
     featured: true
   },
   {
     id: 2,
-    title: "Coca-Cola Reyes",
-    description: "Technical ML Consultant building NLP solutions for enterprise",
+    title: "DealMover.ai",
+    description: "MLE Intern — financial extraction",
     category: "Experience",
-    date: "Aug 2023 – May 2024",
+    date: "Aug 2025 – present",
+    image: "/core.png",
+    link: "https://dealmover.ai/",
+    featured: true
+  },
+  {
+    id: 3,
+    title: "Coca-Cola Reyes",
+    description: "ML Consultant (contract)",
+    category: "Experience",
+    date: "Aug 2024 – Mar 2025",
     image: "/coc.png",
     link: "https://www.reyescocacola.com/our-brands",
     featured: true
   },
   {
-    id: 3,
+    id: 4,
     title: "USC NLP Research",
-    description: "Research Intern working on Natural Language Processing",
+    description: "NLP Research Intern",
     category: "Experience",
     date: "June 2024 – Aug 2024",
     image: "/usc.png",
@@ -32,7 +42,7 @@ const projectData = [
     featured: false
   },
   {
-    id: 4,
+    id: 5,
     title: "ProductLead.ai",
     description: "Discord bot for feedback aggregation using NLP",
     category: "Project",
@@ -41,7 +51,7 @@ const projectData = [
     featured: true
   },
   {
-    id: 5,
+    id: 6,
     title: "CryptoVault",
     description: "Crypto wallet management system with transaction tracking",
     category: "Project",
@@ -51,7 +61,7 @@ const projectData = [
     featured: false
   },
   {
-    id: 6,
+    id: 7,
     title: "OptionXplore",
     description: "Options pricing tool using Monte Carlo & Black-Scholes models",
     category: "Project",
@@ -157,7 +167,7 @@ const ProjectsSection = () => {
             <div className="text-text-secondary group-hover:text-accent transition-colors duration-300">Projects</div>
           </div>
           <div className="text-center group">
-            <div className="text-4xl font-light text-accent mb-2 group-hover:scale-110 transition-transform duration-300">3</div>
+            <div className="text-4xl font-light text-accent mb-2 group-hover:scale-110 transition-transform duration-300">4</div>
             <div className="text-text-secondary group-hover:text-accent transition-colors duration-300">Companies</div>
           </div>
           <div className="text-center group">
