@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import profilePic from '../../pic2.png';
+import profilePic from '../../pic.png';
 
 const HeroSection = () => {
   const [currentWord, setCurrentWord] = useState(0);
