@@ -17,7 +17,7 @@ const projectData = [
     description: "MLE Intern — financial extraction",
     category: "Experience",
     date: "Aug 2025 – present",
-    image: "/core.png",
+    image: "/fin.png",
     link: "https://dealmover.ai/",
     featured: true
   },
